@@ -1,23 +1,39 @@
-import logo from './logo.svg';
+import Caritem from './components/Caritem';
+import ListIncome from './components/ListIncome';
 import './App.css';
+//import IncomeItem from './components/IncomeItem';
+
+
+let cars = [
+  {
+    car: "Audi",
+    model: "A4",
+    year: 2021
+  },
+  {
+    car: "Audi",
+    model: "A5",
+    year: 2018
+  },
+  {
+    car: "BMW",
+    model: "M3",
+    year: 2020
+  }
+]
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      {cars.map((elt, i) =>
+        <Caritem
+          key={i}
+          car={elt.car}
+          carModel={elt.model}
+          carYear={elt.year}
+        />
+      )}
+      <ListIncome />
     </div>
   );
 }
